@@ -7,7 +7,7 @@ header {
   border-bottom: 2px solid orange;
 }
 .container {
-  width: 1400px;
+  width: 1200px;
   margin: auto;
 }
 .header {
@@ -54,6 +54,20 @@ h2 {
   box-shadow: 0 0 5px orange;
   border: 1px solid orange;
 }
+.boxImg {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+img {
+  width: 400px;
+  height: 267px;
+  border-radius: 2px;
+  cursor: pointer;
+  margin: 5px;
+}
 footer {
   position: absolute;
   bottom: 0;
@@ -94,4 +108,14 @@ footer {
 .logoRss:hover {
   filter: invert(75%) drop-shadow(16px 16px 20px #f22c04e3);
   /* drop-shadow(16px 16px 20px #f22c04e3); */
+}
+@media (max-width: 1024px) {
+  .container {
+    width: 100%;
+  }
+  img {
+    border-radius: 0.8rem;
+    max-width: 100%;
+    max-height: auto;
+  }
 }
