@@ -12,11 +12,19 @@ async function getData(query) {
   picturesCreate(data);
   // console.log(data);
 }
+
 getData(zapros);
+//focus in input
 input.focus();
-//full/raw/regular/small/small_s3/thumb
+
 function picturesCreate(data) {
   boxImg.innerHTML = "";
+  if (data.results.length === 0) {
+    const p = `<div class="textErr">
+ Nothing was found for your search "${input.value}". Try again and good luck)
+</div> `;
+    boxImg.insertAdjacentHTML("beforeend", p);
+  }
   data.results.forEach((onePic, index) => {
     const img = `<div class="cover">
   <img src="${onePic.urls.regular}" alt=${index + 1} class="picture" />
