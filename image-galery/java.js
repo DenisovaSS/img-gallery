@@ -1,18 +1,20 @@
 const key = "JkdkRfWrX3J3uTh83hS4HRWYuetZ1I9XrwAWPV11qNo";
-const zapros = "pink";
-const url = `https://api.unsplash.com/search/photos?query=${zapros}&per_page=30&orientation=landscape&client_id=${key}`;
 const pictires = document.querySelectorAll("img");
 const boxImg = document.querySelector(".boxImg");
-async function getData() {
+const form = document.querySelector("form");
+const input = document.getElementById("input");
+let zapros = "red";
+async function getData(query) {
+  const url = `https://api.unsplash.com/search/photos?query=${query}&per_page=30&orientation=landscape&client_id=${key}`;
   const res = await fetch(url);
   const data = await res.json();
   picturesCreate(data);
   // console.log(data);
 }
-getData();
+getData(zapros);
 //full/raw/regular/small/small_s3/thumb
-
 function picturesCreate(data) {
+  boxImg.innerHTML = "";
   data.results.forEach((onePic, index) => {
     const img = `<div class="cover">
   <img src="${onePic.urls.regular}" alt=${index + 1} class="picture" />
@@ -20,3 +22,12 @@ function picturesCreate(data) {
     boxImg.insertAdjacentHTML("beforeend", img);
   });
 }
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  if (input.value) {
+    let reachZapros = input.value;
+    getData(reachZapros);
+  } else {
+    alert("try again");
+  }
+});
