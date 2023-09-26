@@ -3,6 +3,16 @@
   margin: 0;
   padding: 0;
 }
+body {
+  background-image: linear-gradient(
+    to top,
+    #2c3f58,
+    #2e2e41,
+    #261f2a,
+    #191317,
+    #000000
+  );
+}
 header {
   border-bottom: 2px solid orange;
 }
@@ -24,6 +34,7 @@ header {
 }
 h2 {
   font-family: "Croissant One", cursive;
+  color: aliceblue;
 }
 .search {
   position: relative;
@@ -35,7 +46,7 @@ h2 {
   color: black;
   font-size: 15px;
   right: 5%;
-  top: 24%;
+  top: 30%;
   cursor: pointer;
 }
 .fa-magnifying-glass:hover {
@@ -50,9 +61,19 @@ h2 {
   transition: all 0.3s ease-in-out;
   border: 1px solid #dddddd;
 }
+#input::-webkit-search-cancel-button {
+  position: relative;
+  right: 30px;
+  /* -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 10px;
+  background: red; */
+}
 #input:focus {
   box-shadow: 0 0 5px orange;
   border: 1px solid orange;
+  box-shadow: rgba(222, 140, 8, 0.84) 0px 3px 8px;
 }
 .boxImg {
   width: 100%;
@@ -78,12 +99,12 @@ img {
   cursor: pointer;
 }
 footer {
+  padding: 10px;
   background: orange;
 }
 .footer-container {
   display: flex;
   justify-content: space-between;
-  width: 100vw;
 }
 .footer-data {
   margin-left: 20px;
@@ -101,7 +122,7 @@ footer {
 .Mygithub,
 .year {
   text-decoration: none;
-  font-size: 15px;
+  font-size: 25px;
   padding: 0 20px;
   transition: 0.3s;
   color: #000000;
@@ -115,7 +136,7 @@ footer {
   filter: invert(75%) drop-shadow(16px 16px 20px #f22c04e3);
   /* drop-shadow(16px 16px 20px #f22c04e3); */
 }
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .container {
     width: 100%;
   }
