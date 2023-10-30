@@ -5,6 +5,9 @@ const form = document.querySelector("form");
 const input = document.getElementById("input");
 const mGlass = document.querySelector(".fa-magnifying-glass");
 let zapros = "dogs";
+//focus in input
+input.focus();
+
 async function getData(query) {
   const url = `https://api.unsplash.com/search/photos?query=${query}&per_page=30&orientation=landscape&client_id=${key}`;
   const res = await fetch(url);
@@ -14,9 +17,8 @@ async function getData(query) {
 }
 
 getData(zapros);
-//focus in input
-input.focus();
 
+//
 function picturesCreate(data) {
   boxImg.innerHTML = "";
   if (data.results.length === 0) {
@@ -32,13 +34,7 @@ function picturesCreate(data) {
     boxImg.insertAdjacentHTML("beforeend", img);
   });
 }
-/////Event listener for  form
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  doResearch();
-});
-/////Event listener for button search
-mGlass.addEventListener("click", doResearch);
+//
 function doResearch() {
   if (input.value) {
     let reachZapros = input.value;
@@ -47,3 +43,10 @@ function doResearch() {
     alert("try again");
   }
 }
+/////Event listener for  form
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  doResearch();
+});
+/////Event listener for button search
+mGlass.addEventListener("click", doResearch);
